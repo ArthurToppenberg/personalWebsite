@@ -137,3 +137,6 @@ dist
 
 #apple
 .DS_Store
+
+# turbo
+.turbo
