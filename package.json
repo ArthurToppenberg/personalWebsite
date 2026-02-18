@@ -3,12 +3,19 @@
   "version": "1.0.0",
   "description": "",
   "scripts": {
-    "dev": "pnpm --filter nextjs dev",
-    "build": "pnpm --filter nextjs build",
-    "start": "pnpm --filter nextjs start"
+    "dev": "pnpm exec turbo run dev",
+    "build": "pnpm exec turbo run build",
+    "start": "pnpm exec turbo run start",
+    "lint": "pnpm exec turbo run lint",
+    "format": "pnpm exec turbo run format",
+    "clean": "pnpm exec turbo run clean && pnpm exec rimraf .turbo"
   },
   "keywords": [],
   "author": "Arthur Toppenberg",
   "license": "ISC",
-  "packageManager": "pnpm@10.4.1"
+  "packageManager": "pnpm@10.4.1",
+  "devDependencies": {
+    "turbo": "^2.3.3",
+    "rimraf": "^6.0.1"
+  }
 }
