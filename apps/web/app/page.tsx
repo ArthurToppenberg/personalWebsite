@@ -55,7 +55,7 @@ const SOCIAL_LINKS = [
   },
   {
     label: "LinkedIn",
-    href: "https://linkedin.com/in/arthurtoppenberg",
+    href: "https://www.linkedin.com/in/arthur-toppenberg-52b15126a/",
     icon: Linkedin,
   },
   {
