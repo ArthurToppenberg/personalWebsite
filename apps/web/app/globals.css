@@ -1,7 +1,9 @@
 @import "tailwindcss";
 @import "tw-animate-css";
 @import "shadcn/tailwind.css";
-@import "@app/ui/styles/globals.css";
+@import "../../../packages/ui/src/styles/globals.css";
+
+@source "../../../packages/ui/src";
 
 @theme inline {
   --font-sans: var(--font-geist-sans);
