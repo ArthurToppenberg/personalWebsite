@@ -10,8 +10,6 @@ export default function Home() {
         <p className="max-w-xl text-lg leading-relaxed text-muted-foreground">
           Production Engineering student at DTU — applied engineering, mechanical
           design, and software.
-
-          Newwest version
         </p>
         <div className="pt-2">
           <SocialLinks />

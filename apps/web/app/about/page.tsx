@@ -33,55 +33,38 @@ export default function AboutPage() {
             </div>
             <Separator />
             <p className="text-muted-foreground leading-relaxed">
-              Production Engineering student at DTU with a strong focus on
-              applied engineering and systems thinking. Combining mechanical
-              design, manufacturing processes, and software development into
-              integrated, execution-driven solutions.
+              I&apos;m a Production Engineering student at DTU. I focus on bridging
+              the gap between mechanical design and software—building systems where
+              physical manufacturing and digital workflows actually work together.
             </p>
           </div>
         </div>
 
         <div className="flex flex-col gap-8">
-          <AboutSection title="Engineering">
+          <AboutSection title="Professional Experience">
             <p>
-              His engineering work spans the full product development cycle —
-              from CAD modeling and ISO/DIN-compliant technical drawings to
-              prototyping with 3D printing (PLA/TPU), CNC laser cutting,
-              structured BOM development, and assembly validation. He approaches
-              mechanical design with a focus on manufacturability, tolerancing,
-              standards compliance, and system integration rather than isolated
-              components.
+              Currently a Software Developer at <strong>Health Tech Hub Copenhagen</strong>,
+              where I build full-stack tools within MDR/IVDR frameworks. I specialize in
+              creating JSON-driven workflows and AI-assisted pipelines that automate
+              complex regulatory and technical documentation.
             </p>
           </AboutSection>
 
-          <AboutSection title="Software">
+          <AboutSection title="Background">
             <p>
-              In parallel, Arthur builds robust software systems. He works with
-              TypeScript, Next.js, React, Node.js, Prisma, Azure Functions, and
-              Python to develop structured, scalable applications. He has
-              experience designing JSON-driven workflows, implementing
-              AI-assisted evaluation pipelines, and building full-stack systems
-              that support engineering and regulatory processes.
+              Previously at <strong>Spaak Technologies</strong>, I progressed from an
+              internship to a full-time Software Developer role. This transition
+              solidified my expertise in TypeScript, Next.js, and Python, focusing on
+              bridging the gap between physical manufacturing and digital workflows.
             </p>
           </AboutSection>
 
-          <AboutSection title="Compliance">
+          <AboutSection title="Core Competencies">
             <p>
-              Through work in health-tech and quality management contexts, he
-              has developed familiarity with ISO 13485, MDR/IVDR regulatory
-              frameworks, and structured documentation for compliance and
-              Notified Body interactions. His strength lies in structuring
-              complex requirements into systematic, implementable processes.
-            </p>
-          </AboutSection>
-
-          <AboutSection title="Approach">
-            <p>
-              Arthur&apos;s working style is iterative, analytical, and
-              execution-focused. He prioritizes clarity, correctness, and
-              structural integrity in both technical and strategic work. His
-              projects consistently bridge hardware and software — translating
-              engineering principles into practical, scalable solutions.
+              My work integrates Production Engineering principles from DTU with modern
+              software architecture. I prioritize structural integrity and maintainable
+              code, ensuring that technical systems—whether hardware or software—are
+              built for scalability and regulatory compliance.
             </p>
           </AboutSection>
         </div>
