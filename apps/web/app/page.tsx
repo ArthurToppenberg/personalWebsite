@@ -9,11 +9,16 @@ export default function Home() {
 
   return (
     <main className="-mt-16 w-full">
-      <section className="relative min-h-screen w-full bg-stone-900">
+      <section className="relative min-h-screen w-full overflow-hidden">
         <div
-          className="absolute inset-0 z-0 bg-stone-900"
+          className="absolute inset-0 z-0"
           aria-hidden
         >
+          <div
+            className="absolute -inset-[30%] bg-gradient-to-b from-gray-700 via-gray-500 to-amber-400"
+            style={{ filter: "blur(100px)" }}
+            aria-hidden
+          />
           <Image
             src="/media/broensGadeKøkken.png"
             alt=""
