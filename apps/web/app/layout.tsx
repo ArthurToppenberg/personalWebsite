@@ -21,8 +21,16 @@ export const metadata: Metadata = {
     "Personal website of Arthur Toppenberg — software engineer, builder, and creator.",
   icons: {
     icon: [
-      { url: assetPath("/favicon-16x16.png"), sizes: "16x16", type: "image/png" },
-      { url: assetPath("/favicon-32x32.png"), sizes: "32x32", type: "image/png" },
+      {
+        url: assetPath("/favicon-16x16.png"),
+        sizes: "16x16",
+        type: "image/png",
+      },
+      {
+        url: assetPath("/favicon-32x32.png"),
+        sizes: "32x32",
+        type: "image/png",
+      },
     ],
     apple: assetPath("/apple-touch-icon.png"),
   },

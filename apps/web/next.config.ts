@@ -3,7 +3,7 @@ import { readFileSync } from "node:fs";
 import { resolve } from "node:path";
 
 const rootPackageJson: { version: string } = JSON.parse(
-  readFileSync(resolve(__dirname, "../../package.json"), "utf-8")
+  readFileSync(resolve(__dirname, "../../package.json"), "utf-8"),
 );
 
 const basePath = process.env.NEXT_PUBLIC_BASE_PATH || "";

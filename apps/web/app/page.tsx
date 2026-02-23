@@ -35,8 +35,8 @@ export default function Home() {
           className="max-w-xl text-lg leading-relaxed text-muted-foreground"
           variants={item}
         >
-          Production Engineering student at DTU — applied engineering, mechanical
-          design, and software.
+          Production Engineering student at DTU — applied engineering,
+          mechanical design, and software.
         </motion.p>
         <motion.div className="pt-2" variants={item}>
           <SocialLinks />
@@ -45,4 +45,3 @@ export default function Home() {
     </main>
   );
 }
-  

@@ -1,1 +1,16 @@
-{"name":"personalWebsite","version":"1.2.1","description":"","scripts":{"dev":"pnpm exec turbo run dev","build":"pnpm exec turbo run build","start":"pnpm exec turbo run start","lint":"pnpm exec turbo run lint","format":"pnpm exec turbo run format","clean":"pnpm exec turbo run clean && pnpm exec rimraf .turbo"},"keywords":[],"author":"Arthur Toppenberg","license":"ISC","packageManager":"pnpm@10.4.1","devDependencies":{"rimraf":"^6.0.1","turbo":"^2.3.3"}}
+{
+  "name": "personalWebsite",
+  "version": "0.0.1",
+  "keywords": [],
+  "author": "Arthur Toppenberg",
+  "license": "ISC",
+  "packageManager": "pnpm@10.4.1",
+  "scripts": {
+    "clean": "pnpm exec turbo run clean && pnpm exec rimraf .turbo",
+    "format": "pnpm exec turbo run format"
+  },
+  "devDependencies": {
+    "rimraf": "^6.0.1",
+    "turbo": "^2.3.3"
+  }
+}

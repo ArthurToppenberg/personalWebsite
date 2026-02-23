@@ -56,41 +56,42 @@ export default function AboutPage() {
             </div>
             <Separator />
             <p className="text-muted-foreground leading-relaxed">
-              I&apos;m a Production Engineering student at DTU. I focus on bridging
-              the gap between mechanical design and software—building systems where
-              physical manufacturing and digital workflows actually work together.
+              I&apos;m a Production Engineering student at DTU. I focus on
+              bridging the gap between mechanical design and software—building
+              systems where physical manufacturing and digital workflows
+              actually work together.
             </p>
           </motion.div>
         </div>
 
-        <motion.div
-          className="flex flex-col gap-8"
-          variants={staggerContainer}
-        >
+        <motion.div className="flex flex-col gap-8" variants={staggerContainer}>
           <AboutSection title="Professional Experience" variants={fadeInUp}>
             <p>
-              Currently a Software Developer at <strong>Health Tech Hub Copenhagen</strong>,
-              where I build full-stack tools within MDR/IVDR frameworks. I specialize in
-              creating JSON-driven workflows and AI-assisted pipelines that automate
-              complex regulatory and technical documentation.
+              Currently a Software Developer at{" "}
+              <strong>Health Tech Hub Copenhagen</strong>, where I build
+              full-stack tools within MDR/IVDR frameworks. I specialize in
+              creating JSON-driven workflows and AI-assisted pipelines that
+              automate complex regulatory and technical documentation.
             </p>
           </AboutSection>
 
           <AboutSection title="Background" variants={fadeInUp}>
             <p>
-              Previously at <strong>Spaak Technologies</strong>, I progressed from an
-              internship to a full-time Software Developer role. This transition
-              solidified my expertise in TypeScript, Next.js, and Python, focusing on
-              bridging the gap between physical manufacturing and digital workflows.
+              Previously at <strong>Spaak Technologies</strong>, I progressed
+              from an internship to a full-time Software Developer role. This
+              transition solidified my expertise in TypeScript, Next.js, and
+              Python, focusing on bridging the gap between physical
+              manufacturing and digital workflows.
             </p>
           </AboutSection>
 
           <AboutSection title="Core Competencies" variants={fadeInUp}>
             <p>
-              My work integrates Production Engineering principles from DTU with modern
-              software architecture. I prioritize structural integrity and maintainable
-              code, ensuring that technical systems—whether hardware or software—are
-              built for scalability and regulatory compliance.
+              My work integrates Production Engineering principles from DTU with
+              modern software architecture. I prioritize structural integrity
+              and maintainable code, ensuring that technical systems—whether
+              hardware or software—are built for scalability and regulatory
+              compliance.
             </p>
           </AboutSection>
         </motion.div>
@@ -127,7 +128,10 @@ function AboutSection({
 }: {
   title: string;
   children: React.ReactNode;
-  variants: { hidden: { opacity: number; y: number }; visible: { opacity: number; y: number } };
+  variants: {
+    hidden: { opacity: number; y: number };
+    visible: { opacity: number; y: number };
+  };
 }) {
   return (
     <motion.div className="flex flex-col gap-2" variants={variants}>

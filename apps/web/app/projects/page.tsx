@@ -43,32 +43,30 @@ export default function ProjectsPage() {
         <div className="grid gap-4 sm:grid-cols-2">
           {PROJECTS.map((project) => (
             <motion.div key={project.title} variants={cardItem}>
-              <Card
-                className="group relative transition-colors hover:border-foreground/20"
-              >
-              <a
-                href={project.href}
-                target="_blank"
-                rel="noopener noreferrer"
-                className="absolute inset-0 z-10"
-              />
-              <CardHeader>
-                <CardTitle className="flex items-center gap-2 text-base">
-                  {project.title}
-                  <ArrowUpRight className="size-4 text-muted-foreground opacity-0 transition-opacity group-hover:opacity-100" />
-                </CardTitle>
-                <CardDescription>{project.description}</CardDescription>
-              </CardHeader>
-              <CardContent>
-                <div className="flex flex-wrap gap-1.5">
-                  {project.tags.map((tag) => (
-                    <Badge key={tag} variant="outline" className="text-xs">
-                      {tag}
-                    </Badge>
-                  ))}
-                </div>
-              </CardContent>
-            </Card>
+              <Card className="group relative transition-colors hover:border-foreground/20">
+                <a
+                  href={project.href}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="absolute inset-0 z-10"
+                />
+                <CardHeader>
+                  <CardTitle className="flex items-center gap-2 text-base">
+                    {project.title}
+                    <ArrowUpRight className="size-4 text-muted-foreground opacity-0 transition-opacity group-hover:opacity-100" />
+                  </CardTitle>
+                  <CardDescription>{project.description}</CardDescription>
+                </CardHeader>
+                <CardContent>
+                  <div className="flex flex-wrap gap-1.5">
+                    {project.tags.map((tag) => (
+                      <Badge key={tag} variant="outline" className="text-xs">
+                        {tag}
+                      </Badge>
+                    ))}
+                  </div>
+                </CardContent>
+              </Card>
             </motion.div>
           ))}
         </div>
