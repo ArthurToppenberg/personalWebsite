@@ -68,6 +68,8 @@ jobs:
 
       - name: Build
         run: pnpm build
+        env:
+          NEXT_PUBLIC_BASE_PATH: /personalWebsite
 
       - name: Upload artifact
         uses: actions/upload-pages-artifact@v4
