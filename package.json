@@ -7,7 +7,11 @@
   "packageManager": "pnpm@10.4.1",
   "scripts": {
     "clean": "pnpm exec turbo run clean && pnpm exec rimraf .turbo",
-    "format": "pnpm exec turbo run format"
+    "format": "pnpm exec turbo run format",
+    "dev": "pnpm exec turbo run dev",
+    "build": "pnpm exec turbo run build",
+    "start": "pnpm exec turbo run start",
+    "lint": "pnpm exec turbo run lint"
   },
   "devDependencies": {
     "rimraf": "^6.0.1",
