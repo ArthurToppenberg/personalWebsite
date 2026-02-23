@@ -1,5 +1,6 @@
 "use client";
 
+import { motion } from "framer-motion";
 import Link from "next/link";
 import { usePathname } from "next/navigation";
 
@@ -14,7 +15,12 @@ export function SiteHeader() {
   const pathname = usePathname();
 
   return (
-    <header className="sticky top-0 z-50 border-b bg-background/80 backdrop-blur-sm">
+    <motion.header
+      className="sticky top-0 z-50 border-b bg-background/80 backdrop-blur-sm"
+      initial={{ y: -16, opacity: 0 }}
+      animate={{ y: 0, opacity: 1 }}
+      transition={{ duration: 0.35, ease: "easeOut" }}
+    >
       <nav className="mx-auto flex max-w-3xl items-center justify-between px-6 py-4">
         <Link
           href="/"
@@ -39,8 +45,10 @@ export function SiteHeader() {
               >
                 {link.label}
                 {isActive && (
-                  <span
+                  <motion.span
                     className="absolute -bottom-1 left-0 right-0 h-0.5 bg-foreground"
+                    layoutId="nav-underline"
+                    transition={{ type: "spring", stiffness: 380, damping: 30 }}
                     aria-hidden
                   />
                 )}
@@ -49,6 +57,6 @@ export function SiteHeader() {
           })}
         </div>
       </nav>
-    </header>
+    </motion.header>
   );
 }
