@@ -3,6 +3,7 @@
 import { motion } from "framer-motion";
 import Link from "next/link";
 import { usePathname } from "next/navigation";
+import { ThemeToggle } from "./ThemeToggle";
 
 const NAV_LINKS = [
   { href: "/", label: "Arthur Toppenberg", isBrand: true },
@@ -55,6 +56,7 @@ export function SiteHeader() {
               </Link>
             );
           })}
+          <ThemeToggle />
         </div>
       </nav>
     </motion.header>
