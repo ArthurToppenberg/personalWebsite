@@ -2,11 +2,8 @@
 
 import { motion } from "framer-motion";
 import { AppImage } from "./components/AppImage";
-import { useState } from "react";
 
 export default function Home() {
-  const [imageLoaded, setImageLoaded] = useState(false);
-
   return (
     <main className="-mt-16 w-full">
       <section className="relative min-h-screen w-full overflow-hidden">
@@ -14,20 +11,13 @@ export default function Home() {
           className="absolute inset-0 z-0"
           aria-hidden
         >
-          <div
-            className="absolute -inset-[30%] bg-gradient-to-b from-gray-700 via-gray-500 to-amber-400"
-            style={{ filter: "blur(100px)" }}
-            aria-hidden
-          />
           <AppImage
             src="/media/broensGadeKøkken.png"
             alt=""
             fill
-            className="object-cover transition-opacity duration-500 ease-out"
-            style={{ opacity: imageLoaded ? 1 : 0 }}
+            className="object-cover"
             priority
             sizes="100vw"
-            onLoad={() => setImageLoaded(true)}
           />
           <div
             className="absolute inset-0 bg-background/20"
