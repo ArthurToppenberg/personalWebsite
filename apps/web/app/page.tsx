@@ -1,7 +1,7 @@
 "use client";
 
 import { motion } from "framer-motion";
-import Image from "next/image";
+import { AppImage } from "./components/AppImage";
 import { useState } from "react";
 
 export default function Home() {
@@ -19,7 +19,7 @@ export default function Home() {
             style={{ filter: "blur(100px)" }}
             aria-hidden
           />
-          <Image
+          <AppImage
             src="/media/broensGadeKøkken.png"
             alt=""
             fill
