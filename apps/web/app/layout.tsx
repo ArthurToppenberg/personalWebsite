@@ -2,6 +2,7 @@ import type { Metadata } from "next";
 import { Geist, Geist_Mono } from "next/font/google";
 import { SiteFooter } from "./components/SiteFooter";
 import { SiteHeader } from "./components/SiteHeader";
+import { assetPath } from "./lib/assetPath";
 import "./globals.css";
 
 const geistSans = Geist({
@@ -20,12 +21,12 @@ export const metadata: Metadata = {
     "Personal website of Arthur Toppenberg — software engineer, builder, and creator.",
   icons: {
     icon: [
-      { url: "/favicon-16x16.png", sizes: "16x16", type: "image/png" },
-      { url: "/favicon-32x32.png", sizes: "32x32", type: "image/png" },
+      { url: assetPath("/favicon-16x16.png"), sizes: "16x16", type: "image/png" },
+      { url: assetPath("/favicon-32x32.png"), sizes: "32x32", type: "image/png" },
     ],
-    apple: "/apple-touch-icon.png",
+    apple: assetPath("/apple-touch-icon.png"),
   },
-  manifest: "/site.webmanifest",
+  manifest: assetPath("/site.webmanifest"),
 };
 
 export default function RootLayout({

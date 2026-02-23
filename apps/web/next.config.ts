@@ -14,6 +14,7 @@ const nextConfig: NextConfig = {
   ...(basePath ? { basePath } : {}),
   env: {
     NEXT_PUBLIC_APP_VERSION: rootPackageJson.version,
+    NEXT_PUBLIC_BASE_PATH: basePath,
   },
 };
 

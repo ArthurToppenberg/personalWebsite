@@ -1,4 +1,4 @@
-import Image from "next/image";
+import { AppImage } from "../components/AppImage";
 import { Badge } from "@app/ui/components/badge";
 import { Card, CardContent } from "@app/ui/components/card";
 import { Separator } from "@app/ui/components/separator";
@@ -11,7 +11,7 @@ export default function AboutPage() {
         <div className="flex flex-col gap-12 sm:flex-row sm:items-start sm:gap-10">
           <Card className="shrink-0 overflow-hidden border-none bg-transparent p-0 shadow-none sm:w-56">
             <CardContent className="p-0">
-              <Image
+              <AppImage
                 src="/media/theSphereSelfie.png"
                 alt="Arthur at The Sphere"
                 width={600}
