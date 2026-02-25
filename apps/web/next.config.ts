@@ -1,6 +1,7 @@
 import type { NextConfig } from "next";
 import { readFileSync } from "node:fs";
 import { resolve } from "node:path";
+import { withContentCollections } from "@content-collections/next";
 
 const rootPackageJson: { version: string } = JSON.parse(
   readFileSync(resolve(__dirname, "../../package.json"), "utf-8"),
@@ -18,4 +19,4 @@ const nextConfig: NextConfig = {
   },
 };
 
-export default nextConfig;
+export default withContentCollections(nextConfig);

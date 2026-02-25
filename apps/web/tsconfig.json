@@ -20,7 +20,8 @@
     ],
     "paths": {
       "@app/ui/*": ["../../packages/ui/src/*"],
-      "@app/*": ["./*"]
+      "@app/*": ["./*"],
+      "content-collections": ["./.content-collections/generated"]
     }
   },
   "include": [

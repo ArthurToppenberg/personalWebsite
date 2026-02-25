@@ -1,7 +1,9 @@
 "use client";
 
+import { allProjects } from "content-collections";
 import { motion } from "framer-motion";
 import { ArrowUpRight } from "lucide-react";
+import Link from "next/link";
 import { Badge } from "@app/ui/components/badge";
 import {
   Card,
@@ -10,7 +12,6 @@ import {
   CardHeader,
   CardTitle,
 } from "@app/ui/components/card";
-import { PROJECTS } from "../lib/siteData";
 
 const container = {
   hidden: { opacity: 0 },
@@ -42,13 +43,11 @@ export default function ProjectsPage() {
             Projects
           </motion.h1>
           <div className="grid gap-4 sm:grid-cols-2">
-            {PROJECTS.map((project) => (
-              <motion.div key={project.title} variants={cardItem}>
+            {allProjects.map((project) => (
+              <motion.div key={project._meta.path} variants={cardItem}>
                 <Card className="group relative bg-background/80 backdrop-blur-sm transition-colors hover:border-foreground/20">
-                  <a
-                    href={project.href}
-                    target="_blank"
-                    rel="noopener noreferrer"
+                  <Link
+                    href={`/projects/${project._meta.path}`}
                     className="absolute inset-0 z-10"
                   />
                   <CardHeader>
@@ -60,7 +59,7 @@ export default function ProjectsPage() {
                   </CardHeader>
                   <CardContent>
                     <div className="flex flex-wrap gap-1.5">
-                      {project.tags.map((tag) => (
+                      {project.tech.map((tag) => (
                         <Badge key={tag} variant="outline" className="text-xs">
                           {tag}
                         </Badge>
