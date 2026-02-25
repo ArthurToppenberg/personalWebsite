@@ -1,9 +1,10 @@
 import { allProjects } from "content-collections";
-import { MDXContent } from "@content-collections/mdx/react";
 import { notFound } from "next/navigation";
 import Link from "next/link";
 import { ArrowLeft, ArrowUpRight } from "lucide-react";
 import { Badge } from "@app/ui/components/badge";
+import { AppImage } from "../../components/AppImage";
+import { ProjectMDX } from "./projectMDX";
 
 export function generateStaticParams(): Array<{ slug: string }> {
   return allProjects.map((project) => ({
@@ -59,8 +60,21 @@ export default async function ProjectPage({ params }: ProjectPageProps) {
           </div>
         </header>
 
+        {project.image && (
+          <div className="relative mb-10 overflow-hidden rounded-xl border">
+            <AppImage
+              src={project.image}
+              alt={project.title}
+              width={1200}
+              height={630}
+              priority
+              className="w-full object-cover"
+            />
+          </div>
+        )}
+
         <article className="prose prose-neutral dark:prose-invert max-w-none">
-          <MDXContent code={project.mdx} />
+          <ProjectMDX code={project.mdx} />
         </article>
       </div>
     </main>
