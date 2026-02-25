@@ -10,7 +10,7 @@
     "start": "next start",
     "lint": "biome check",
     "format": "biome format --write",
-    "clean": "rimraf .next .turbo node_modules out app/lib/blurPlaceholders.json"
+    "clean": "rimraf .next .turbo node_modules out app/lib/blurPlaceholders.json .content-collections"
   },
   "dependencies": {
     "@app/ui": "workspace:*",

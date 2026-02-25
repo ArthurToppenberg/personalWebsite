@@ -44,8 +44,7 @@ export default function Home() {
           transition={{ duration: 0.5 }}
         >
           <p>
-            Hey, I&apos;m Arthur. Production Engineering student at DTU — applied
-            engineering, mechanical design, and software.
+            Lorem ipsum dolor sit amet, consectetur adipiscing elit. Etiam gravida, dui nec dictum hendrerit, ex nisi porttitor elit, at fermentum quam ipsum nec elit. Morbi ut magna dolor. Pellentesque habitant morbi tristique senectus et netus et malesuada fames ac turpis egestas.
           </p>
         </motion.div>
       </section>

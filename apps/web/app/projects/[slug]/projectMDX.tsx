@@ -6,9 +6,9 @@ import { AppImage } from "../../components/AppImage";
 type MDXImageProps = React.ImgHTMLAttributes<HTMLImageElement>;
 
 const mdxComponents = {
-  img: ({ src, alt, ...rest }: MDXImageProps) => (
+  img: ({ src, alt, width: _width, height: _height, ...rest }: MDXImageProps) => (
     <AppImage
-      src={src ?? ""}
+      src={src as string}
       alt={alt ?? ""}
       width={800}
       height={450}

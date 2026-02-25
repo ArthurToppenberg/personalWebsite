@@ -1,7 +1,7 @@
 import { allProjects } from "content-collections";
 import { notFound } from "next/navigation";
 import Link from "next/link";
-import { ArrowLeft, ArrowUpRight } from "lucide-react";
+import { ArrowLeft, Link as LinkIcon } from "lucide-react";
 import { Badge } from "@app/ui/components/badge";
 import { AppImage } from "../../components/AppImage";
 import { ProjectMDX } from "./projectMDX";
@@ -36,9 +36,27 @@ export default async function ProjectPage({ params }: ProjectPageProps) {
         </Link>
 
         <header className="mb-10">
-          <h1 className="mb-3 text-3xl font-semibold tracking-tight">
-            {project.title}
-          </h1>
+          {project.href && project.href !== "#" ? (
+            <a
+              href={project.href}
+              target="_blank"
+              rel="noopener noreferrer"
+              className="mb-3 flex flex-wrap items-center gap-2 text-foreground no-underline transition-opacity hover:opacity-80"
+              aria-label={`${project.title} - View source`}
+            >
+              <h1 className="text-3xl font-semibold tracking-tight">
+                {project.title}
+              </h1>
+              <span className="text-muted-foreground">-</span>
+              <LinkIcon className="size-4 text-muted-foreground" />
+            </a>
+          ) : (
+            <div className="mb-3 flex flex-wrap items-center gap-2">
+              <h1 className="text-3xl font-semibold tracking-tight">
+                {project.title}
+              </h1>
+            </div>
+          )}
           <p className="mb-4 text-muted-foreground">{project.description}</p>
           <div className="flex flex-wrap items-center gap-2">
             {project.tech.map((tag) => (
@@ -46,31 +64,26 @@ export default async function ProjectPage({ params }: ProjectPageProps) {
                 {tag}
               </Badge>
             ))}
-            {project.href && project.href !== "#" && (
-              <a
-                href={project.href}
-                target="_blank"
-                rel="noopener noreferrer"
-                className="ml-2 inline-flex items-center gap-1 text-sm text-muted-foreground transition-colors hover:text-foreground"
-              >
-                View source
-                <ArrowUpRight className="size-3.5" />
-              </a>
-            )}
           </div>
         </header>
 
         {project.image && (
-          <div className="relative mb-10 overflow-hidden rounded-xl border">
-            <AppImage
-              src={project.image}
-              alt={project.title}
-              width={1200}
-              height={630}
-              priority
-              className="w-full object-cover"
-            />
-          </div>
+          <figure className="m-0 mb-10">
+            <div className="overflow-hidden rounded-xl border">
+              <AppImage
+                src={project.image}
+                alt={project.title}
+                width={1200}
+                height={630}
+                className="w-full object-cover"
+              />
+            </div>
+            {project.imageCaption && (
+              <figcaption className="mt-2 text-left text-xs text-muted-foreground tracking-tight">
+                {project.imageCaption}
+              </figcaption>
+            )}
+          </figure>
         )}
 
         <article className="prose prose-neutral dark:prose-invert max-w-none">

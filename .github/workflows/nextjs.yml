@@ -46,9 +46,6 @@ jobs:
           restore-keys: |
             ${{ runner.os }}-nextjs-${{ hashFiles('**/pnpm-lock.yaml') }}-
 
-      - name: Generate blur placeholders
-        run: pnpm --filter web generate:blur
-
       - name: Build
         run: pnpm build
         env:

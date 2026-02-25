@@ -51,15 +51,12 @@ export default function AboutPage() {
                 Arthur Toppenberg
               </h1>
               <p className="text-sm text-muted-foreground">
-                Production Engineering &middot; DTU
+                Mechanical Engineering &middot; DTU
               </p>
             </div>
             <Separator />
             <p className="text-muted-foreground leading-relaxed">
-              I&apos;m a Production Engineering student at DTU. I focus on
-              bridging the gap between mechanical design and software—building
-              systems where physical manufacturing and digital workflows
-              actually work together.
+              I&apos;m a Mechanical Engineering student at DTU. 
             </p>
           </motion.div>
         </div>
@@ -67,54 +64,21 @@ export default function AboutPage() {
         <motion.div className="flex flex-col gap-8" variants={staggerContainer}>
           <AboutSection title="Professional Experience" variants={fadeInUp}>
             <p>
-              Currently a Software Developer at{" "}
-              <strong>Health Tech Hub Copenhagen</strong>, where I build
-              full-stack tools within MDR/IVDR frameworks. I specialize in
-              creating JSON-driven workflows and AI-assisted pipelines that
-              automate complex regulatory and technical documentation.
+              Lorem ipsum dolor sit amet, consectetur adipiscing elit. Etiam gravida, dui nec dictum hendrerit, ex nisi porttitor elit, at fermentum quam ipsum nec elite. Morbi ut magna dolor. Pellentesque habitant morbi tristique senectus et netus et malesuada fames ac turpis egestas.
             </p>
           </AboutSection>
 
           <AboutSection title="Background" variants={fadeInUp}>
             <p>
-              Previously at <strong>Spaak Technologies</strong>, I progressed
-              from an internship to a full-time Software Developer role. This
-              transition solidified my expertise in TypeScript, Next.js, and
-              Python, focusing on bridging the gap between physical
-              manufacturing and digital workflows.
+              Fusce ac tellus ut erat posuere sodales vitae vitae mi. Duis nec molestie urna, eu sodales sapien. Maecenas luctus, mauris eget venenatis vestibulum, dolor nisi blandit nisi, at scelerisque mauris orci quis dolor.
             </p>
           </AboutSection>
 
           <AboutSection title="Core Competencies" variants={fadeInUp}>
             <p>
-              My work integrates Production Engineering principles from DTU with
-              modern software architecture. I prioritize structural integrity
-              and maintainable code, ensuring that technical systems—whether
-              hardware or software—are built for scalability and regulatory
-              compliance.
+              Vestibulum ante ipsum primis in faucibus orci luctus et ultrices posuere cubilia curae; Etiam facilisis dui ac turpis posuere, quis accumsan lorem efficitur. In hac habitasse platea dictumst.
             </p>
           </AboutSection>
-        </motion.div>
-
-        <Separator />
-
-        <motion.div className="flex flex-col gap-3" variants={staggerContainer}>
-          <motion.h2
-            className="text-xs font-medium uppercase tracking-widest text-muted-foreground"
-            variants={fadeInUp}
-          >
-            Technologies
-          </motion.h2>
-          <motion.div
-            className="flex flex-wrap gap-2"
-            variants={staggerContainer}
-          >
-            {TECHNOLOGIES.map((tech) => (
-              <motion.div key={tech} variants={fadeInUp}>
-                <Badge variant="secondary">{tech}</Badge>
-              </motion.div>
-            ))}
-          </motion.div>
         </motion.div>
       </motion.section>
     </main>
