@@ -4,7 +4,7 @@
   "private": true,
   "scripts": {
     "dev": "next dev",
-    "generate:blur": "node scripts/generateBlurPlaceholders.mjs",
+    "convert:heic": "node scripts/convertHeicToPng.mjs",
     "prebuild": "node scripts/generateBlurPlaceholders.mjs",
     "build": "next build",
     "start": "next start",
