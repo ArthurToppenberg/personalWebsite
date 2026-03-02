@@ -4,7 +4,6 @@ import { allProjects } from "content-collections";
 import { motion } from "framer-motion";
 import { ArrowUpRight } from "lucide-react";
 import Link from "next/link";
-import { Badge } from "@app/ui/components/badge";
 import {
   Card,
   CardContent,
@@ -57,15 +56,7 @@ export default function ProjectsPage() {
                     </CardTitle>
                     <CardDescription>{project.description}</CardDescription>
                   </CardHeader>
-                  <CardContent>
-                    <div className="flex flex-wrap gap-1.5">
-                      {project.tech.map((tag) => (
-                        <Badge key={tag} variant="outline" className="text-xs">
-                          {tag}
-                        </Badge>
-                      ))}
-                    </div>
-                  </CardContent>
+                  <CardContent />
                 </Card>
               </motion.div>
             ))}

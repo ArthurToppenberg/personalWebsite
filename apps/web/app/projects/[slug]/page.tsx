@@ -2,7 +2,6 @@ import { allProjects } from "content-collections";
 import { notFound } from "next/navigation";
 import Link from "next/link";
 import { ArrowLeft, Link as LinkIcon } from "lucide-react";
-import { Badge } from "@app/ui/components/badge";
 import { AppImage } from "../../components/AppImage";
 import { ProjectMDX } from "./projectMDX";
 
@@ -58,13 +57,6 @@ export default async function ProjectPage({ params }: ProjectPageProps) {
             </div>
           )}
           <p className="mb-4 text-muted-foreground">{project.description}</p>
-          <div className="flex flex-wrap items-center gap-2">
-            {project.tech.map((tag) => (
-              <Badge key={tag} variant="outline" className="text-xs">
-                {tag}
-              </Badge>
-            ))}
-          </div>
         </header>
 
         {project.image && (

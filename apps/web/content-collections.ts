@@ -13,7 +13,6 @@ const projects = defineCollection({
     image: z.string().optional(),
     imageCaption: z.string().optional(),
     href: z.string().optional(),
-    tech: z.array(z.string()),
     content: z.string(),
   }),
   transform: async (document, context) => {
