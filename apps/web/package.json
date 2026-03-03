@@ -6,6 +6,7 @@
     "dev": "next dev",
     "convert:heic": "node scripts/convertHeicToPng.mjs",
     "optimize:media": "node scripts/optimizeMedia.mjs",
+    "generate:blur-placeholders": "node scripts/generateBlurPlaceholders.mjs",
     "prebuild": "node scripts/optimizeMedia.mjs && node scripts/generateBlurPlaceholders.mjs",
     "build": "next build",
     "start": "next start",
