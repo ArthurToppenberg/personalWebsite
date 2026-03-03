@@ -4,7 +4,7 @@ import { fileURLToPath } from "node:url";
 import sharp from "sharp";
 
 const __dirname = fileURLToPath(new URL(".", import.meta.url));
-const MEDIA_DIR = join(__dirname, "../public/media");
+const MEDIA_DIR = join(__dirname, "../media");
 const OPTIMIZED_DIR = join(__dirname, "../public/optimized");
 const MAX_LONG_EDGE = 1600;
 const AVIF_QUALITY = 60;

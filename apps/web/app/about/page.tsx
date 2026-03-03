@@ -34,7 +34,7 @@ export default function AboutPage() {
             <Card className="overflow-hidden border-none bg-transparent p-0 shadow-none">
               <CardContent className="p-0">
                 <AppImage
-                  src="/media/theSphereSelfie.png"
+                  src="/optimized/theSphereSelfie.avif"
                   alt="Arthur at The Sphere"
                   width={600}
                   height={600}

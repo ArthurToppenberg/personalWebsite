@@ -12,7 +12,7 @@ export default function Home() {
           aria-hidden
         >
           <AppImage
-            src="/media/broensGadeKøkken.png"
+            src="/optimized/broensGadeKøkken.avif"
             alt=""
             fill
             className="object-cover"
