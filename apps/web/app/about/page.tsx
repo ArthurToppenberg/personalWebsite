@@ -87,29 +87,6 @@ export default function AboutPage() {
               I enjoy hands-on engineering work, from designing and assembling
               equipment to welding and fabrication in the workshop.
             </p>
-            <div className="mt-4 grid gap-4 sm:grid-cols-2">
-              <AppImage
-                src="/optimized/assembledHydralicPress.avif"
-                alt="Hydraulic press assembled on a workbench"
-                width={1024}
-                height={768}
-                className="h-auto w-full rounded-xl object-cover"
-              />
-              <AppImage
-                src="/optimized/weldingGroup.avif"
-                alt="Group photo in welding gear holding a welded frame"
-                width={1024}
-                height={768}
-                className="h-auto w-full rounded-xl object-cover"
-              />
-              <AppImage
-                src="/optimized/weldingHydralicFrame.avif"
-                alt="Hydraulic press frame clamped on a welding table"
-                width={1024}
-                height={768}
-                className="h-auto w-full rounded-xl object-cover sm:col-span-2"
-              />
-            </div>
           </AboutSection>
         </motion.div>
       </motion.section>
