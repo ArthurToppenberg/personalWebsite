@@ -5,12 +5,13 @@
   "scripts": {
     "dev": "next dev",
     "convert:heic": "node scripts/convertHeicToPng.mjs",
-    "prebuild": "node scripts/generateBlurPlaceholders.mjs",
+    "optimize:media": "node scripts/optimizeMedia.mjs",
+    "prebuild": "node scripts/optimizeMedia.mjs && node scripts/generateBlurPlaceholders.mjs",
     "build": "next build",
     "start": "next start",
     "lint": "biome check",
     "format": "biome format --write",
-    "clean": "rimraf .next .turbo node_modules out app/lib/blurPlaceholders.json .content-collections"
+    "clean": "rimraf .next .turbo node_modules out app/lib/blurPlaceholders.json .content-collections public/optimized"
   },
   "dependencies": {
     "@app/ui": "workspace:*",
