@@ -2,7 +2,13 @@
 
 import { allProjects } from "content-collections";
 import { motion } from "framer-motion";
-import { ArrowUpRight } from "lucide-react";
+import {
+  ArrowUpRight,
+  Globe2,
+  Hammer,
+  HelpCircle,
+  type LucideIcon,
+} from "lucide-react";
 import Link from "next/link";
 import {
   Card,
@@ -23,6 +29,20 @@ const container = {
 const cardItem = {
   hidden: { opacity: 0, y: 14 },
   visible: { opacity: 1, y: 0 },
+};
+
+const projectIcons: Record<string, LucideIcon> = {
+  Hammer,
+  Globe2,
+  HelpCircle,
+};
+
+const getProjectIcon = (iconName: string | undefined): LucideIcon => {
+  if (!iconName) {
+    return HelpCircle;
+  }
+
+  return projectIcons[iconName] ?? HelpCircle;
 };
 
 export default function ProjectsPage() {
@@ -51,6 +71,17 @@ export default function ProjectsPage() {
                   />
                   <CardHeader>
                     <CardTitle className="flex items-center gap-2 text-base">
+                      <span className="flex items-center justify-center rounded-full bg-muted p-1">
+                        {(() => {
+                          const Icon = getProjectIcon(project.icon);
+                          return (
+                            <Icon
+                              className="size-4 text-muted-foreground"
+                              aria-hidden="true"
+                            />
+                          );
+                        })()}
+                      </span>
                       {project.title}
                       <ArrowUpRight className="size-4 text-muted-foreground opacity-0 transition-opacity group-hover:opacity-100" />
                     </CardTitle>

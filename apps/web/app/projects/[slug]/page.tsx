@@ -61,13 +61,13 @@ export default async function ProjectPage({ params }: ProjectPageProps) {
 
         {project.image && (
           <figure className="m-0 mb-10">
-            <div className="rounded-xl border">
+            <div className="overflow-hidden rounded-xl border">
               <AppImage
                 src={project.image}
                 alt={project.title}
                 width={1200}
                 height={630}
-                className="w-full h-auto"
+                className="w-full h-auto rounded-xl"
               />
             </div>
             {project.imageCaption && (
