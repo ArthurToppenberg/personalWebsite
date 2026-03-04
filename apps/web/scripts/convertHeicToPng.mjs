@@ -5,7 +5,7 @@ import { spawn } from "node:child_process";
 import sharp from "sharp";
 
 const __dirname = fileURLToPath(new URL(".", import.meta.url));
-const PUBLIC_DIR = join(__dirname, "../public");
+const MEDIA_DIR = join(__dirname, "../media");
 
 async function findHeicFiles(directory) {
   const entries = await readdir(directory, { withFileTypes: true });
@@ -66,7 +66,7 @@ async function convertImage(inputPath, outputPath) {
 }
 
 async function convertHeicToPng() {
-  const heicFiles = await findHeicFiles(PUBLIC_DIR);
+  const heicFiles = await findHeicFiles(MEDIA_DIR);
 
   if (heicFiles.length === 0) {
     console.log("Media » No HEIC files found to convert");
@@ -78,9 +78,9 @@ async function convertHeicToPng() {
 
     console.log(
       `Media » Converting ${inputPath.replace(
-        dirname(PUBLIC_DIR),
+        dirname(MEDIA_DIR),
         "",
-      )} → ${outputPath.replace(dirname(PUBLIC_DIR), "")}`,
+      )} → ${outputPath.replace(dirname(MEDIA_DIR), "")}`,
     );
 
     // eslint-disable-next-line no-await-in-loop
