@@ -57,6 +57,7 @@ export default function ProjectsPage() {
               {allProjects.map((project) => {
                 const locked =
                   Boolean(project.inProgress) && !isDev;
+                const lockedInDevMode = Boolean(project.inProgress) && isDev;
                 return (
                   <motion.div
                     key={project._meta.path}
@@ -98,7 +99,12 @@ export default function ProjectsPage() {
                         </TooltipContent>
                       </Tooltip>
                     ) : (
-                      <Card className="group relative bg-background/80 backdrop-blur-sm transition-colors hover:border-foreground/20">
+                      <Card
+                        className={
+                          `group relative bg-background/80 backdrop-blur-sm transition-colors hover:border-foreground/20` +
+                          (lockedInDevMode ? ' border-amber-500' : '')
+                        }
+                      >
                         <Link
                           href={`/projects/${project._meta.path}`}
                           className="absolute inset-0 z-10"
