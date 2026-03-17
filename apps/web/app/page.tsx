@@ -15,14 +15,10 @@ export default function Home() {
             src="/optimized/broensGadeKøkken.avif"
             alt=""
             fill
-            className="object-cover"
-            priority
+            className="object-cover grayscale"
             sizes="100vw"
           />
-          <div
-            className="absolute inset-0 bg-background/20"
-            aria-hidden
-          />
+
         </div>
         <motion.div
           className="relative z-10 flex min-h-screen flex-col items-center justify-center px-6"
@@ -30,7 +26,7 @@ export default function Home() {
           animate={{ opacity: 1 }}
           transition={{ duration: 0.5, delay: 0.1 }}
         >
-          <h1 className="-translate-y-16 text-8xl font-bold text-white tracking-tight dark:text-black sm:text-9xl">
+          <h1 className="-translate-y-16 text-8xl font-bold text-white tracking-tight sm:text-9xl">
             Hej
           </h1>
         </motion.div>

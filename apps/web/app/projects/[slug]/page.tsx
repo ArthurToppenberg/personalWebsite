@@ -47,7 +47,7 @@ export default async function ProjectPage({ params }: ProjectPageProps) {
             className="mb-6 rounded-lg border border-amber-500/50 bg-amber-500/10 px-4 py-3 text-sm text-amber-700 dark:text-amber-400"
             role="status"
           >
-            This page is in progress
+            This page is in progress, will not be accesible in production
           </div>
         )}
 
