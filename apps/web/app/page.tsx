@@ -15,7 +15,8 @@ export default function Home() {
             src="/optimized/broensGadeKøkken.avif"
             alt=""
             fill
-            className="object-cover grayscale"
+            grayscale
+            className="object-cover"
             sizes="100vw"
           />
 

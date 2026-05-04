@@ -8,6 +8,7 @@ import blurMap from "../lib/blurPlaceholders.json";
 type AppImageProps = Omit<ImageProps, "src"> & {
   src: string;
   caption?: string;
+  grayscale?: boolean;
 };
 
 const BLUR_PLACEHOLDER_STYLE: CSSProperties = {
@@ -22,6 +23,11 @@ const BLUR_PLACEHOLDER_STYLE: CSSProperties = {
   pointerEvents: "none",
 };
 
+const GRAYSCALE_BLUR_PLACEHOLDER_STYLE: CSSProperties = {
+  ...BLUR_PLACEHOLDER_STYLE,
+  filter: "blur(20px) grayscale(1)",
+};
+
 export function AppImage({
   src,
   fill,
@@ -31,10 +37,19 @@ export function AppImage({
   width,
   height,
   caption,
+  grayscale,
   ...props
 }: AppImageProps) {
   const blurDataURL = (blurMap as Record<string, string>)[src];
   const [loaded, setLoaded] = useState(!blurDataURL);
+  const mergedClassName = grayscale
+    ? className
+      ? `${className} grayscale`
+      : "grayscale"
+    : className;
+  const placeholderStyle = grayscale
+    ? GRAYSCALE_BLUR_PLACEHOLDER_STYLE
+    : BLUR_PLACEHOLDER_STYLE;
 
   if (!blurDataURL) {
     const imageContent = (
@@ -43,7 +58,7 @@ export function AppImage({
         fill={fill}
         width={fill ? undefined : width}
         height={fill ? undefined : height}
-        className={className}
+        className={mergedClassName}
         style={style}
         onLoad={onLoad}
         {...props}
@@ -74,7 +89,7 @@ export function AppImage({
       src={blurDataURL}
       alt=""
       aria-hidden="true"
-      style={{ ...BLUR_PLACEHOLDER_STYLE, opacity: loaded ? 0 : 1 }}
+      style={{ ...placeholderStyle, opacity: loaded ? 0 : 1 }}
     />
   );
 
@@ -84,7 +99,7 @@ export function AppImage({
       <Image
         src={assetPath(src)}
         fill
-        className={className}
+        className={mergedClassName}
         style={{
           ...style,
           transition: "opacity 500ms ease-out",
@@ -116,7 +131,7 @@ export function AppImage({
         src={assetPath(src)}
         width={width}
         height={height}
-        className={className}
+        className={mergedClassName}
         style={{
           display: "block",
           ...style,
