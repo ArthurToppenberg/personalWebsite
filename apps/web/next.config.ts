@@ -1,21 +1,20 @@
 import type { NextConfig } from "next";
 import { readFileSync } from "node:fs";
-import { resolve } from "node:path";
+import path, { resolve } from "node:path";
 import { withContentCollections } from "@content-collections/next";
 
 const rootPackageJson: { version: string } = JSON.parse(
   readFileSync(resolve(__dirname, "../../package.json"), "utf-8"),
 );
 
-const basePath = process.env.NEXT_PUBLIC_BASE_PATH || "";
-
 const nextConfig: NextConfig = {
-  output: "export",
-  images: { unoptimized: true },
-  ...(basePath ? { basePath } : {}),
+  output: "standalone",
+  // Monorepo: without this, output file tracing only inspects apps/web and
+  // misses `@app/ui` (workspace:*) and the root pnpm-lock.yaml — the traced
+  // standalone server would fail to resolve its own workspace dependency.
+  outputFileTracingRoot: path.join(__dirname, "../../"),
   env: {
     NEXT_PUBLIC_APP_VERSION: rootPackageJson.version,
-    NEXT_PUBLIC_BASE_PATH: basePath,
   },
 };
 
