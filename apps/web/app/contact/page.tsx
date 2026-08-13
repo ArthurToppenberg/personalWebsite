@@ -1,7 +1,16 @@
-"use client";
-
-import { motion } from "framer-motion";
+import type { Metadata } from "next";
+import {
+  MotionDiv,
+  MotionH1,
+  MotionP,
+  MotionSection,
+} from "../components/motion";
 import { SocialLinks } from "../components/SocialLinks";
+
+export const metadata: Metadata = {
+  title: "Contact",
+  description: "Get in touch with Arthur Toppenberg.",
+};
 
 const container = {
   hidden: { opacity: 0 },
@@ -19,29 +28,29 @@ const item = {
 export default function ContactPage() {
   return (
     <main className="mx-auto max-w-3xl px-6">
-      <motion.section
+      <MotionSection
         className="flex flex-col gap-6 py-16 sm:py-20"
         initial="hidden"
         animate="visible"
         variants={container}
       >
-        <motion.h1
+        <MotionH1
           className="text-2xl font-semibold tracking-tight"
           variants={item}
         >
           Get in touch
-        </motion.h1>
-        <motion.p
+        </MotionH1>
+        <MotionP
           className="max-w-md leading-relaxed text-muted-foreground"
           variants={item}
         >
           I&apos;m always open to interesting conversations and opportunities.
           Feel free to reach out through any of the channels below.
-        </motion.p>
-        <motion.div variants={item}>
+        </MotionP>
+        <MotionDiv variants={item}>
           <SocialLinks />
-        </motion.div>
-      </motion.section>
+        </MotionDiv>
+      </MotionSection>
     </main>
   );
 }

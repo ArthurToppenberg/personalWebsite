@@ -1,5 +1,3 @@
-"use client";
-
 import { MDXContent } from "@content-collections/mdx/react";
 import Image from "next/image";
 import React from "react";

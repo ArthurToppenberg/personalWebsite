@@ -1,11 +1,15 @@
-"use client";
-
 import { Badge } from "@app/ui/components/badge";
 import { Card, CardContent } from "@app/ui/components/card";
 import { Separator } from "@app/ui/components/separator";
-import { motion } from "framer-motion";
+import type { Metadata } from "next";
 import Image from "next/image";
+import { MotionDiv, MotionSection } from "../components/motion";
 import { TECHNOLOGIES } from "../lib/siteData";
+
+export const metadata: Metadata = {
+  title: "About",
+  description: "Mechanical Engineering student at DTU.",
+};
 
 const fadeInUp = {
   hidden: { opacity: 0, y: 16 },
@@ -23,14 +27,14 @@ const staggerContainer = {
 export default function AboutPage() {
   return (
     <main className="mx-auto max-w-3xl px-6">
-      <motion.section
+      <MotionSection
         className="flex flex-col gap-12 py-16 sm:py-20"
         initial="hidden"
         animate="visible"
         variants={staggerContainer}
       >
         <div className="flex flex-col gap-12 sm:flex-row sm:items-start sm:gap-10">
-          <motion.div variants={fadeInUp} className="shrink-0 sm:w-56">
+          <MotionDiv variants={fadeInUp} className="shrink-0 sm:w-56">
             <Card className="overflow-hidden border-none bg-transparent p-0 shadow-none">
               <CardContent className="p-0">
                 <Image
@@ -43,9 +47,9 @@ export default function AboutPage() {
                 />
               </CardContent>
             </Card>
-          </motion.div>
+          </MotionDiv>
 
-          <motion.div className="flex flex-col gap-4" variants={fadeInUp}>
+          <MotionDiv className="flex flex-col gap-4" variants={fadeInUp}>
             <div className="flex flex-col gap-1">
               <h1 className="text-2xl font-semibold tracking-tight">
                 Arthur Toppenberg
@@ -58,10 +62,10 @@ export default function AboutPage() {
             <p className="text-muted-foreground leading-relaxed">
               I&apos;m a Mechanical Engineering student at DTU.
             </p>
-          </motion.div>
+          </MotionDiv>
         </div>
 
-        <motion.div className="flex flex-col gap-8" variants={staggerContainer}>
+        <MotionDiv className="flex flex-col gap-8" variants={staggerContainer}>
           <AboutSection title="Professional Experience" variants={fadeInUp}>
             <p>
               Lorem ipsum dolor sit amet, consectetur adipiscing elit. Etiam
@@ -95,8 +99,8 @@ export default function AboutPage() {
               equipment to welding and fabrication in the workshop.
             </p>
           </AboutSection>
-        </motion.div>
-      </motion.section>
+        </MotionDiv>
+      </MotionSection>
     </main>
   );
 }
@@ -114,11 +118,11 @@ function AboutSection({
   };
 }) {
   return (
-    <motion.div className="flex flex-col gap-2" variants={variants}>
+    <MotionDiv className="flex flex-col gap-2" variants={variants}>
       <h2 className="text-xs font-medium uppercase tracking-widest text-muted-foreground">
         {title}
       </h2>
       <div className="text-muted-foreground leading-relaxed">{children}</div>
-    </motion.div>
+    </MotionDiv>
   );
 }

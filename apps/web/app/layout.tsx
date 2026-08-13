@@ -16,9 +16,12 @@ const geistMono = Geist_Mono({
 });
 
 export const metadata: Metadata = {
-  title: "Arthur Toppenberg",
+  title: {
+    default: "Arthur Toppenberg",
+    template: "%s — Arthur Toppenberg",
+  },
   description:
-    "Personal website of Arthur Toppenberg — software engineer, builder, and creator.",
+    "Mechanical Engineering student at DTU, building hardware and software projects on the side.",
   icons: {
     icon: [
       { url: "/favicon-16x16.png", sizes: "16x16", type: "image/png" },

@@ -1,5 +1,6 @@
 import { allProjects } from "content-collections";
 import { ArrowLeft, Link as LinkIcon } from "lucide-react";
+import type { Metadata } from "next";
 import Image from "next/image";
 import Link from "next/link";
 import { notFound } from "next/navigation";
@@ -14,6 +15,22 @@ export function generateStaticParams(): Array<{ slug: string }> {
 type ProjectPageProps = {
   params: Promise<{ slug: string }>;
 };
+
+export async function generateMetadata({
+  params,
+}: ProjectPageProps): Promise<Metadata> {
+  const { slug } = await params;
+  const project = allProjects.find((p) => p._meta.path === slug);
+
+  if (!project) {
+    return {};
+  }
+
+  return {
+    title: project.title,
+    description: project.description,
+  };
+}
 
 export default async function ProjectPage({ params }: ProjectPageProps) {
   const { slug } = await params;

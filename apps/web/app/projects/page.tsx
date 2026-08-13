@@ -1,8 +1,12 @@
-"use client";
-
 import { allProjects } from "content-collections";
-import { motion } from "framer-motion";
+import type { Metadata } from "next";
+import { MotionDiv, MotionH1, MotionSection } from "../components/motion";
 import { ProjectCard } from "../components/ProjectCard";
+
+export const metadata: Metadata = {
+  title: "Projects",
+  description: "A few things Arthur Toppenberg has built recently.",
+};
 
 const sortedProjects = [...allProjects].sort((a, b) =>
   b.date.localeCompare(a.date),
@@ -25,26 +29,26 @@ export default function ProjectsPage() {
   return (
     <main className="relative min-h-screen overflow-hidden">
       <div className="relative z-10 mx-auto max-w-3xl px-6">
-        <motion.section
+        <MotionSection
           className="flex flex-col gap-6 py-16 sm:py-20"
           initial="hidden"
           animate="visible"
           variants={container}
         >
-          <motion.h1
+          <MotionH1
             className="text-2xl font-semibold tracking-tight"
             variants={cardItem}
           >
             Projects
-          </motion.h1>
+          </MotionH1>
           <div className="grid gap-4 sm:grid-cols-2">
             {sortedProjects.map((project) => (
-              <motion.div key={project._meta.path} variants={cardItem}>
+              <MotionDiv key={project._meta.path} variants={cardItem}>
                 <ProjectCard project={project} />
-              </motion.div>
+              </MotionDiv>
             ))}
           </div>
-        </motion.section>
+        </MotionSection>
       </div>
     </main>
   );
