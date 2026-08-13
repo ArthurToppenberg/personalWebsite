@@ -72,10 +72,10 @@ export default function Home() {
       >
         <MotionDiv className="flex flex-col gap-1" variants={fadeInUp}>
           <h2 className="text-2xl font-semibold tracking-tight">
-            Selected work
+            Projects
           </h2>
           <p className="text-sm text-muted-foreground">
-            A few things I&apos;ve built recently.
+            Take a look at my most recent projects
           </p>
         </MotionDiv>
 
