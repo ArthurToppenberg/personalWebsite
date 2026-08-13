@@ -4,7 +4,7 @@ import { Badge } from "@app/ui/components/badge";
 import { Card, CardContent } from "@app/ui/components/card";
 import { Separator } from "@app/ui/components/separator";
 import { motion } from "framer-motion";
-import { AppImage } from "../components/AppImage";
+import Image from "next/image";
 import { TECHNOLOGIES } from "../lib/siteData";
 
 const fadeInUp = {
@@ -33,7 +33,7 @@ export default function AboutPage() {
           <motion.div variants={fadeInUp} className="shrink-0 sm:w-56">
             <Card className="overflow-hidden border-none bg-transparent p-0 shadow-none">
               <CardContent className="p-0">
-                <AppImage
+                <Image
                   src="/images/theSphereSelfie.png"
                   alt="Arthur at The Sphere"
                   width={600}

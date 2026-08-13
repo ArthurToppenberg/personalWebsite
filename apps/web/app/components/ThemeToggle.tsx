@@ -4,11 +4,7 @@ import { Moon, Sun } from "lucide-react";
 import { useTheme } from "next-themes";
 import { useEffect, useState } from "react";
 
-interface ThemeToggleProps {
-  transparent?: boolean;
-}
-
-export function ThemeToggle({ transparent = false }: ThemeToggleProps) {
+export function ThemeToggle() {
   const { resolvedTheme, setTheme } = useTheme();
   const [mounted, setMounted] = useState(false);
 
@@ -28,11 +24,7 @@ export function ThemeToggle({ transparent = false }: ThemeToggleProps) {
     <button
       type="button"
       onClick={toggleTheme}
-      className={`flex h-8 w-8 items-center justify-center rounded-md transition-colors ${
-        transparent
-          ? "text-white/70 hover:text-white"
-          : "text-muted-foreground hover:text-foreground"
-      }`}
+      className="flex h-8 w-8 items-center justify-center rounded-md text-muted-foreground transition-colors hover:text-foreground"
       aria-label={`Switch to ${resolvedTheme === "dark" ? "light" : "dark"} mode`}
     >
       {resolvedTheme === "dark" ? (

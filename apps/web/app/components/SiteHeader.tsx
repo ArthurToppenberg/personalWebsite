@@ -1,6 +1,5 @@
 "use client";
 
-import { useState, useEffect, useCallback } from "react";
 import { motion } from "framer-motion";
 import Link from "next/link";
 import { usePathname } from "next/navigation";
@@ -13,32 +12,12 @@ const NAV_LINKS = [
   { href: "/contact", label: "Contact", isBrand: false },
 ] as const;
 
-const SCROLL_THRESHOLD = 50;
-
 export function SiteHeader() {
   const pathname = usePathname();
-  const isHome = pathname === "/";
-  const [scrolled, setScrolled] = useState(false);
-
-  const handleScroll = useCallback((): void => {
-    setScrolled(window.scrollY > SCROLL_THRESHOLD);
-  }, []);
-
-  useEffect(() => {
-    handleScroll();
-    window.addEventListener("scroll", handleScroll, { passive: true });
-    return () => window.removeEventListener("scroll", handleScroll);
-  }, [handleScroll]);
-
-  const transparent = isHome && !scrolled;
 
   return (
     <motion.header
-      className={`sticky top-0 z-50 transition-colors duration-300 ${
-        transparent
-          ? "bg-transparent"
-          : "border-b bg-background/70 backdrop-blur-sm"
-      }`}
+      className="sticky top-0 z-50 border-b bg-background/70 backdrop-blur-sm"
       initial={{ y: -16, opacity: 0 }}
       animate={{ y: 0, opacity: 1 }}
       transition={{ duration: 0.35, ease: "easeOut" }}
@@ -47,11 +26,7 @@ export function SiteHeader() {
         <Link
           href="/"
           className={`text-sm font-semibold tracking-tight transition-colors hover:opacity-80 ${
-            transparent
-              ? "text-white"
-              : pathname === "/"
-                ? "text-foreground"
-                : "text-muted-foreground"
+            pathname === "/" ? "text-foreground" : "text-muted-foreground"
           }`}
         >
           Arthur Toppenberg
@@ -64,21 +39,15 @@ export function SiteHeader() {
                 key={link.href}
                 href={link.href}
                 className={`relative text-sm transition-colors ${
-                  transparent
-                    ? isActive
-                      ? "font-medium text-white"
-                      : "text-white/70 hover:text-white"
-                    : isActive
-                      ? "font-medium text-foreground"
-                      : "text-muted-foreground hover:text-foreground"
+                  isActive
+                    ? "font-medium text-foreground"
+                    : "text-muted-foreground hover:text-foreground"
                 }`}
               >
                 {link.label}
                 {isActive && (
                   <motion.span
-                    className={`absolute -bottom-1 left-0 right-0 h-0.5 ${
-                      transparent ? "bg-white" : "bg-foreground"
-                    }`}
+                    className="absolute -bottom-1 left-0 right-0 h-0.5 bg-foreground"
                     layoutId="nav-underline"
                     transition={{ type: "spring", stiffness: 380, damping: 30 }}
                     aria-hidden
@@ -87,7 +56,7 @@ export function SiteHeader() {
               </Link>
             );
           })}
-          <ThemeToggle transparent={transparent} />
+          <ThemeToggle />
         </div>
       </nav>
     </motion.header>

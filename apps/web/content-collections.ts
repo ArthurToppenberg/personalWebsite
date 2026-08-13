@@ -14,7 +14,6 @@ const projects = defineCollection({
     image: z.string().optional(),
     imageCaption: z.string().optional(),
     href: z.string().optional(),
-    inProgress: z.boolean().optional(),
     content: z.string(),
   }),
   transform: async (document, context) => {

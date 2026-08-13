@@ -2,26 +2,11 @@
 
 import { allProjects } from "content-collections";
 import { motion } from "framer-motion";
-import {
-  ArrowUpRight,
-} from "lucide-react";
-import Link from "next/link";
-import {
-  Card,
-  CardContent,
-  CardDescription,
-  CardHeader,
-  CardTitle,
-} from "@app/ui/components/card";
-import {
-  Tooltip,
-  TooltipContent,
-  TooltipProvider,
-  TooltipTrigger,
-} from "@app/ui/components/tooltip";
-import { getProjectIcon } from "./utils";
+import { ProjectCard } from "../components/ProjectCard";
 
-const isDev = process.env.NODE_ENV === "development";
+const sortedProjects = [...allProjects].sort((a, b) =>
+  b.date.localeCompare(a.date),
+);
 
 const container = {
   hidden: { opacity: 0 },
@@ -52,92 +37,13 @@ export default function ProjectsPage() {
           >
             Projects
           </motion.h1>
-          <TooltipProvider>
-            <div className="grid gap-4 sm:grid-cols-2">
-              {allProjects.map((project) => {
-                const locked =
-                  Boolean(project.inProgress) && !isDev;
-                const lockedInDevMode = Boolean(project.inProgress) && isDev;
-                return (
-                  <motion.div
-                    key={project._meta.path}
-                    variants={cardItem}
-                  >
-                    {locked ? (
-                      <Tooltip>
-                        <TooltipTrigger asChild>
-                          <Card
-                            className="group relative cursor-not-allowed bg-background/80 opacity-60 backdrop-blur-sm transition-colors"
-                            aria-label="This page is still under construction"
-                          >
-                            <span className="absolute inset-0 z-10 block" />
-                            <CardHeader>
-                              <CardTitle className="flex items-center gap-2 text-base">
-                                <span className="flex items-center justify-center rounded-full bg-muted p-1">
-                                  {(() => {
-                                    const Icon =
-                                      getProjectIcon(project.icon);
-                                    return (
-                                      <Icon
-                                        className="size-4 text-muted-foreground"
-                                        aria-hidden="true"
-                                      />
-                                    );
-                                  })()}
-                                </span>
-                                {project.title}
-                              </CardTitle>
-                              <CardDescription>
-                                {project.description}
-                              </CardDescription>
-                            </CardHeader>
-                            <CardContent />
-                          </Card>
-                        </TooltipTrigger>
-                        <TooltipContent>
-                          This page is still under construction
-                        </TooltipContent>
-                      </Tooltip>
-                    ) : (
-                      <Card
-                        className={
-                          `group relative bg-background/80 backdrop-blur-sm transition-colors hover:border-foreground/20` +
-                          (lockedInDevMode ? ' border-amber-500' : '')
-                        }
-                      >
-                        <Link
-                          href={`/projects/${project._meta.path}`}
-                          className="absolute inset-0 z-10"
-                        />
-                        <CardHeader>
-                          <CardTitle className="flex items-center gap-2 text-base">
-                            <span className="flex items-center justify-center rounded-full bg-muted p-1">
-                              {(() => {
-                                const Icon =
-                                  getProjectIcon(project.icon);
-                                return (
-                                  <Icon
-                                    className="size-4 text-muted-foreground"
-                                    aria-hidden="true"
-                                  />
-                                );
-                              })()}
-                            </span>
-                            {project.title}
-                            <ArrowUpRight className="size-4 text-muted-foreground opacity-0 transition-opacity group-hover:opacity-100" />
-                          </CardTitle>
-                          <CardDescription>
-                            {project.description}
-                          </CardDescription>
-                        </CardHeader>
-                        <CardContent />
-                      </Card>
-                    )}
-                  </motion.div>
-                );
-              })}
-            </div>
-          </TooltipProvider>
+          <div className="grid gap-4 sm:grid-cols-2">
+            {sortedProjects.map((project) => (
+              <motion.div key={project._meta.path} variants={cardItem}>
+                <ProjectCard project={project} />
+              </motion.div>
+            ))}
+          </div>
         </motion.section>
       </div>
     </main>

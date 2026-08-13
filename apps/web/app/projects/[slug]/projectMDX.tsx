@@ -1,8 +1,8 @@
 "use client";
 
 import { MDXContent } from "@content-collections/mdx/react";
+import Image from "next/image";
 import React from "react";
-import { AppImage } from "../../components/AppImage";
 
 type MDXImageProps = React.ImgHTMLAttributes<HTMLImageElement>;
 
@@ -13,15 +13,27 @@ type ProjectImageProps = {
 };
 
 function ProjectImage({ src, alt, caption }: ProjectImageProps) {
-  return (
-    <AppImage
+  const image = (
+    <Image
       src={src}
       alt={alt}
-      caption={caption}
       width={1024}
       height={768}
       className="h-auto w-full rounded-xl object-cover"
     />
+  );
+
+  if (!caption) {
+    return image;
+  }
+
+  return (
+    <figure className="m-0">
+      {image}
+      <figcaption className="mt-2 text-left text-xs text-muted-foreground tracking-tight">
+        {caption}
+      </figcaption>
+    </figure>
   );
 }
 
@@ -51,14 +63,7 @@ function ProjectImageGallery({ children }: ProjectImageGalleryProps) {
 
         return (
           <div key={`${src}-${index}`} className={wrapperClassName}>
-            <AppImage
-              src={src}
-              alt={alt}
-              caption={caption}
-              width={1024}
-              height={768}
-              className="h-auto w-full rounded-xl object-cover"
-            />
+            <ProjectImage src={src} alt={alt} caption={caption} />
           </div>
         );
       })}
@@ -67,8 +72,14 @@ function ProjectImageGallery({ children }: ProjectImageGalleryProps) {
 }
 
 const mdxComponents = {
-  img: ({ src, alt, width: _width, height: _height, ...rest }: MDXImageProps) => (
-    <AppImage
+  img: ({
+    src,
+    alt,
+    width: _width,
+    height: _height,
+    ...rest
+  }: MDXImageProps) => (
+    <Image
       src={src as string}
       alt={alt ?? ""}
       width={800}
