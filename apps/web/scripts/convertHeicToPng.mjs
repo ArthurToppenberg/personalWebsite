@@ -1,11 +1,11 @@
-import { readdir } from "node:fs/promises";
-import { join, extname, dirname } from "node:path";
-import { fileURLToPath } from "node:url";
 import { spawn } from "node:child_process";
+import { readdir } from "node:fs/promises";
+import { dirname, extname, join } from "node:path";
+import { fileURLToPath } from "node:url";
 import sharp from "sharp";
 
 const __dirname = fileURLToPath(new URL(".", import.meta.url));
-const MEDIA_DIR = join(__dirname, "../media");
+const MEDIA_DIR = join(__dirname, "../public/images");
 
 async function findHeicFiles(directory) {
   const entries = await readdir(directory, { withFileTypes: true });
@@ -94,4 +94,3 @@ convertHeicToPng().catch((error) => {
   console.error("Media » Failed to convert HEIC files to PNG", error);
   process.exitCode = 1;
 });
-
