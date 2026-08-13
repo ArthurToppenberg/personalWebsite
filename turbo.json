@@ -4,14 +4,7 @@
   "tasks": {
     "build": {
       "dependsOn": ["^build"],
-      "outputs": [
-        ".next/**",
-        "!.next/cache/**",
-        "out/**",
-        "dist/**",
-        "public/optimized/**",
-        "app/lib/blurPlaceholders.json"
-      ]
+      "outputs": [".next/**", "!.next/cache/**", "out/**", "dist/**"]
     },
     "dev": {
       "cache": false,

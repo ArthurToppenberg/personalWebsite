@@ -7,19 +7,15 @@ export default function Home() {
   return (
     <main className="-mt-16 w-full">
       <section className="relative min-h-screen w-full overflow-hidden">
-        <div
-          className="absolute inset-0 z-0"
-          aria-hidden
-        >
+        <div className="absolute inset-0 z-0" aria-hidden>
           <AppImage
-            src="/optimized/broensGadeKøkken.avif"
+            src="/images/broensGadeKøkken.png"
             alt=""
             fill
             grayscale
             className="object-cover"
             sizes="100vw"
           />
-
         </div>
         <motion.div
           className="relative z-10 flex min-h-screen flex-col items-center justify-center px-6"
@@ -41,7 +37,11 @@ export default function Home() {
           transition={{ duration: 0.5 }}
         >
           <p>
-            Lorem ipsum dolor sit amet, consectetur adipiscing elit. Etiam gravida, dui nec dictum hendrerit, ex nisi porttitor elit, at fermentum quam ipsum nec elit. Morbi ut magna dolor. Pellentesque habitant morbi tristique senectus et netus et malesuada fames ac turpis egestas.
+            Lorem ipsum dolor sit amet, consectetur adipiscing elit. Etiam
+            gravida, dui nec dictum hendrerit, ex nisi porttitor elit, at
+            fermentum quam ipsum nec elit. Morbi ut magna dolor. Pellentesque
+            habitant morbi tristique senectus et netus et malesuada fames ac
+            turpis egestas.
           </p>
         </motion.div>
       </section>

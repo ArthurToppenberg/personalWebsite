@@ -1,10 +1,10 @@
 "use client";
 
-import { motion } from "framer-motion";
-import { AppImage } from "../components/AppImage";
 import { Badge } from "@app/ui/components/badge";
 import { Card, CardContent } from "@app/ui/components/card";
 import { Separator } from "@app/ui/components/separator";
+import { motion } from "framer-motion";
+import { AppImage } from "../components/AppImage";
 import { TECHNOLOGIES } from "../lib/siteData";
 
 const fadeInUp = {
@@ -34,7 +34,7 @@ export default function AboutPage() {
             <Card className="overflow-hidden border-none bg-transparent p-0 shadow-none">
               <CardContent className="p-0">
                 <AppImage
-                  src="/optimized/theSphereSelfie.avif"
+                  src="/images/theSphereSelfie.png"
                   alt="Arthur at The Sphere"
                   width={600}
                   height={600}
@@ -56,7 +56,7 @@ export default function AboutPage() {
             </div>
             <Separator />
             <p className="text-muted-foreground leading-relaxed">
-              I&apos;m a Mechanical Engineering student at DTU. 
+              I&apos;m a Mechanical Engineering student at DTU.
             </p>
           </motion.div>
         </div>
@@ -64,13 +64,20 @@ export default function AboutPage() {
         <motion.div className="flex flex-col gap-8" variants={staggerContainer}>
           <AboutSection title="Professional Experience" variants={fadeInUp}>
             <p>
-              Lorem ipsum dolor sit amet, consectetur adipiscing elit. Etiam gravida, dui nec dictum hendrerit, ex nisi porttitor elit, at fermentum quam ipsum nec elite. Morbi ut magna dolor. Pellentesque habitant morbi tristique senectus et netus et malesuada fames ac turpis egestas.
+              Lorem ipsum dolor sit amet, consectetur adipiscing elit. Etiam
+              gravida, dui nec dictum hendrerit, ex nisi porttitor elit, at
+              fermentum quam ipsum nec elite. Morbi ut magna dolor. Pellentesque
+              habitant morbi tristique senectus et netus et malesuada fames ac
+              turpis egestas.
             </p>
           </AboutSection>
 
           <AboutSection title="Background" variants={fadeInUp}>
             <p>
-              Fusce ac tellus ut erat posuere sodales vitae vitae mi. Duis nec molestie urna, eu sodales sapien. Maecenas luctus, mauris eget venenatis vestibulum, dolor nisi blandit nisi, at scelerisque mauris orci quis dolor.
+              Fusce ac tellus ut erat posuere sodales vitae vitae mi. Duis nec
+              molestie urna, eu sodales sapien. Maecenas luctus, mauris eget
+              venenatis vestibulum, dolor nisi blandit nisi, at scelerisque
+              mauris orci quis dolor.
             </p>
           </AboutSection>
 
