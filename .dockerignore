@@ -1,0 +1,14 @@
+**/node_modules
+.git
+.turbo
+**/.next
+**/out
+**/dist
+apps/web/public/optimized
+apps/web/.content-collections
+apps/web/app/lib/blurPlaceholders.json
+*.log
+.DS_Store
+.env
+.env.*
+!.env.example
