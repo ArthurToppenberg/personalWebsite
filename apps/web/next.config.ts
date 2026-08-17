@@ -17,6 +17,12 @@ const nextConfig: NextConfig = {
     // AVIF isn't served by default (costlier to encode) — opt in since the
     // runtime optimizer already caches its output.
     formats: ["image/avif", "image/webp"],
+    remotePatterns: [
+      {
+        protocol: "https",
+        hostname: "blob.arthurtoppenberg.dk",
+      },
+    ],
   },
   env: {
     NEXT_PUBLIC_APP_VERSION: rootPackageJson.version,

@@ -4,6 +4,7 @@ import {
     HelpCircle,
     LucideIcon,
     Music,
+    Speaker,
   } from "lucide-react";
 
   const projectIcons: Record<string, LucideIcon> = {
@@ -11,6 +12,7 @@ import {
     Globe2,
     HelpCircle,
     Music,
+    Speaker,
   };
 
   export const getProjectIcon = (iconName: string | undefined): LucideIcon => {
