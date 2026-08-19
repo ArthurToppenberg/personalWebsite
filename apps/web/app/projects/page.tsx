@@ -9,7 +9,7 @@ export const metadata: Metadata = {
 };
 
 const sortedProjects = [...projects].sort((a, b) =>
-  b.meta.date.localeCompare(a.meta.date),
+  b.date.localeCompare(a.date),
 );
 
 const container = {
@@ -43,8 +43,8 @@ export default function ProjectsPage() {
           </MotionH1>
           <div className="grid gap-4 sm:grid-cols-2">
             {sortedProjects.map((project, index) => (
-              <MotionDiv key={project.meta.slug} variants={cardItem}>
-                <ProjectCard project={project.meta} eager={index === 0} />
+              <MotionDiv key={project.slug} variants={cardItem}>
+                <ProjectCard project={project} eager={index === 0} />
               </MotionDiv>
             ))}
           </div>

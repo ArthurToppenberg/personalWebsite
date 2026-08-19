@@ -11,7 +11,7 @@ import { ProjectCard } from "./components/ProjectCard";
 import { projects } from "./projects/projects";
 
 const sortedProjects = [...projects].sort((a, b) =>
-  b.meta.date.localeCompare(a.meta.date),
+  b.date.localeCompare(a.date),
 );
 
 const fadeInUp = {
@@ -71,9 +71,7 @@ export default function Home() {
         variants={staggerContainer}
       >
         <MotionDiv className="flex flex-col gap-1" variants={fadeInUp}>
-          <h2 className="text-2xl font-semibold tracking-tight">
-            Projects
-          </h2>
+          <h2 className="text-2xl font-semibold tracking-tight">Projects</h2>
           <p className="text-sm text-muted-foreground">
             Take a look at my most recent projects
           </p>
@@ -84,8 +82,8 @@ export default function Home() {
           variants={staggerContainer}
         >
           {sortedProjects.map((project, index) => (
-            <MotionDiv key={project.meta.slug} variants={fadeInUp}>
-              <ProjectCard project={project.meta} eager={index === 0} />
+            <MotionDiv key={project.slug} variants={fadeInUp}>
+              <ProjectCard project={project} eager={index === 0} />
             </MotionDiv>
           ))}
         </MotionDiv>

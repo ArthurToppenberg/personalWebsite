@@ -1,6 +1,5 @@
 import type { LucideIcon } from "lucide-react";
-import type { ComponentType } from "react";
-import * as cubo18 from "./content/cubo-18";
+import { meta as cubo18 } from "./(project)/cubo-18/meta";
 
 export type ProjectMeta = {
   slug: string;
@@ -13,16 +12,5 @@ export type ProjectMeta = {
   href?: string;
 };
 
-export type ProjectModule = {
-  meta: ProjectMeta;
-  Content: ComponentType;
-};
-
-// New project = new file under ./content + one line here.
-const modules: ProjectModule[] = [cubo18];
-
-export const projects: ProjectModule[] = modules;
-
-export function getProject(slug: string): ProjectModule | undefined {
-  return projects.find((project) => project.meta.slug === slug);
-}
+// New project = new folder under ./(project) + one line here.
+export const projects: ProjectMeta[] = [cubo18];

@@ -1,5 +1,68 @@
+import { Link as LinkIcon } from "lucide-react";
 import Image from "next/image";
 import React from "react";
+
+type ProjectHeaderProps = {
+  title: string;
+  description: string;
+  image?: string;
+  imageCaption?: string;
+  href?: string;
+};
+
+export function ProjectHeader({
+  title,
+  description,
+  image,
+  imageCaption,
+  href,
+}: ProjectHeaderProps) {
+  return (
+    <>
+      <header className="mb-10">
+        {href && href !== "#" ? (
+          <a
+            href={href}
+            target="_blank"
+            rel="noopener noreferrer"
+            className="mb-3 flex flex-wrap items-center gap-2 text-foreground no-underline transition-opacity hover:opacity-80"
+            aria-label={`${title} - View source`}
+          >
+            <h1 className="text-3xl font-semibold tracking-tight">{title}</h1>
+            <span className="text-muted-foreground">-</span>
+            <LinkIcon className="size-4 text-muted-foreground" />
+          </a>
+        ) : (
+          <div className="mb-3 flex flex-wrap items-center gap-2">
+            <h1 className="text-3xl font-semibold tracking-tight">{title}</h1>
+          </div>
+        )}
+        <p className="mb-4 text-muted-foreground">{description}</p>
+      </header>
+
+      {image && (
+        <figure className="m-0 mb-10">
+          <div className="overflow-hidden rounded-xl border">
+            <Image
+              src={image}
+              alt={title}
+              width={1200}
+              height={630}
+              loading="eager"
+              fetchPriority="high"
+              className="h-auto w-full rounded-xl"
+            />
+          </div>
+          {imageCaption && (
+            <figcaption className="mt-2 text-left text-xs text-muted-foreground tracking-tight">
+              {imageCaption}
+            </figcaption>
+          )}
+        </figure>
+      )}
+    </>
+  );
+}
 
 type ProjectImageProps = {
   src: string;
