@@ -1,15 +1,15 @@
-import { allProjects } from "content-collections";
 import type { Metadata } from "next";
 import { MotionDiv, MotionH1, MotionSection } from "../components/motion";
 import { ProjectCard } from "../components/ProjectCard";
+import { projects } from "./projects";
 
 export const metadata: Metadata = {
   title: "Projects",
   description: "A few things Arthur Toppenberg has built recently.",
 };
 
-const sortedProjects = [...allProjects].sort((a, b) =>
-  b.date.localeCompare(a.date),
+const sortedProjects = [...projects].sort((a, b) =>
+  b.meta.date.localeCompare(a.meta.date),
 );
 
 const container = {
@@ -42,9 +42,9 @@ export default function ProjectsPage() {
             Projects
           </MotionH1>
           <div className="grid gap-4 sm:grid-cols-2">
-            {sortedProjects.map((project) => (
-              <MotionDiv key={project._meta.path} variants={cardItem}>
-                <ProjectCard project={project} />
+            {sortedProjects.map((project, index) => (
+              <MotionDiv key={project.meta.slug} variants={cardItem}>
+                <ProjectCard project={project.meta} eager={index === 0} />
               </MotionDiv>
             ))}
           </div>

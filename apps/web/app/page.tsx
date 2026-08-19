@@ -1,5 +1,4 @@
 import { Button } from "@app/ui/components/button";
-import { allProjects } from "content-collections";
 import { ArrowRight } from "lucide-react";
 import Link from "next/link";
 import {
@@ -9,9 +8,10 @@ import {
   MotionSection,
 } from "./components/motion";
 import { ProjectCard } from "./components/ProjectCard";
+import { projects } from "./projects/projects";
 
-const sortedProjects = [...allProjects].sort((a, b) =>
-  b.date.localeCompare(a.date),
+const sortedProjects = [...projects].sort((a, b) =>
+  b.meta.date.localeCompare(a.meta.date),
 );
 
 const fadeInUp = {
@@ -83,9 +83,9 @@ export default function Home() {
           className="grid gap-4 sm:grid-cols-2"
           variants={staggerContainer}
         >
-          {sortedProjects.map((project) => (
-            <MotionDiv key={project._meta.path} variants={fadeInUp}>
-              <ProjectCard project={project} />
+          {sortedProjects.map((project, index) => (
+            <MotionDiv key={project.meta.slug} variants={fadeInUp}>
+              <ProjectCard project={project.meta} eager={index === 0} />
             </MotionDiv>
           ))}
         </MotionDiv>

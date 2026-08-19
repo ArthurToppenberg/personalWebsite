@@ -1,14 +1,13 @@
-import { allProjects } from "content-collections";
 import { ArrowLeft, Link as LinkIcon } from "lucide-react";
 import type { Metadata } from "next";
 import Image from "next/image";
 import Link from "next/link";
 import { notFound } from "next/navigation";
-import { ProjectMDX } from "./projectMDX";
+import { getProject, projects } from "../projects";
 
 export function generateStaticParams(): Array<{ slug: string }> {
-  return allProjects.map((project) => ({
-    slug: project._meta.path,
+  return projects.map((project) => ({
+    slug: project.meta.slug,
   }));
 }
 
@@ -20,25 +19,27 @@ export async function generateMetadata({
   params,
 }: ProjectPageProps): Promise<Metadata> {
   const { slug } = await params;
-  const project = allProjects.find((p) => p._meta.path === slug);
+  const project = getProject(slug);
 
   if (!project) {
     return {};
   }
 
   return {
-    title: project.title,
-    description: project.description,
+    title: project.meta.title,
+    description: project.meta.description,
   };
 }
 
 export default async function ProjectPage({ params }: ProjectPageProps) {
   const { slug } = await params;
-  const project = allProjects.find((p) => p._meta.path === slug);
+  const projectModule = getProject(slug);
 
-  if (!project) {
+  if (!projectModule) {
     notFound();
   }
+
+  const { meta: project, Content } = projectModule;
 
   return (
     <main className="relative min-h-screen overflow-hidden">
@@ -84,6 +85,8 @@ export default async function ProjectPage({ params }: ProjectPageProps) {
                 alt={project.title}
                 width={1200}
                 height={630}
+                loading="eager"
+                fetchPriority="high"
                 className="h-auto w-full rounded-xl"
               />
             </div>
@@ -96,7 +99,7 @@ export default async function ProjectPage({ params }: ProjectPageProps) {
         )}
 
         <article className="prose prose-neutral dark:prose-invert max-w-none">
-          <ProjectMDX code={project.mdx} />
+          <Content />
         </article>
       </div>
     </main>

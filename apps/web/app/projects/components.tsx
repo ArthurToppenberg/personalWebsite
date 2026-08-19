@@ -1,8 +1,5 @@
-import { MDXContent } from "@content-collections/mdx/react";
 import Image from "next/image";
 import React from "react";
-
-type MDXImageProps = React.ImgHTMLAttributes<HTMLImageElement>;
 
 type ProjectImageProps = {
   src: string;
@@ -10,7 +7,7 @@ type ProjectImageProps = {
   caption?: string;
 };
 
-function ProjectImage({ src, alt, caption }: ProjectImageProps) {
+export function ProjectImage({ src, alt, caption }: ProjectImageProps) {
   const image = (
     <Image
       src={src}
@@ -39,7 +36,7 @@ type ProjectImageGalleryProps = {
   children?: React.ReactNode;
 };
 
-function ProjectImageGallery({ children }: ProjectImageGalleryProps) {
+export function ProjectImageGallery({ children }: ProjectImageGalleryProps) {
   const items = React.Children.toArray(children).filter(
     (child): child is React.ReactElement<ProjectImageProps> =>
       React.isValidElement(child) && child.type === ProjectImage,
@@ -67,33 +64,4 @@ function ProjectImageGallery({ children }: ProjectImageGalleryProps) {
       })}
     </div>
   );
-}
-
-const mdxComponents = {
-  img: ({
-    src,
-    alt,
-    width: _width,
-    height: _height,
-    ...rest
-  }: MDXImageProps) => (
-    <Image
-      src={src as string}
-      alt={alt ?? ""}
-      width={800}
-      height={450}
-      className="rounded-lg"
-      {...rest}
-    />
-  ),
-  ProjectImageGallery,
-  ProjectImage,
-};
-
-type ProjectMDXProps = {
-  code: string;
-};
-
-export function ProjectMDX({ code }: ProjectMDXProps) {
-  return <MDXContent code={code} components={mdxComponents} />;
 }

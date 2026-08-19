@@ -1,16 +1,19 @@
-import type { allProjects } from "content-collections";
 import { ArrowUpRight } from "lucide-react";
 import Image from "next/image";
 import Link from "next/link";
-import { getProjectIcon } from "../projects/utils";
+import type { ProjectMeta } from "../projects/projects";
 
-type Project = (typeof allProjects)[number];
-
-export function ProjectCard({ project }: { project: Project }) {
-  const Icon = getProjectIcon(project.icon);
+export function ProjectCard({
+  project,
+  eager = false,
+}: {
+  project: ProjectMeta;
+  eager?: boolean;
+}) {
+  const Icon = project.icon;
 
   return (
-    <Link href={`/projects/${project._meta.path}`} className="block h-full">
+    <Link href={`/projects/${project.slug}`} className="block h-full">
       <div className="group relative flex h-full flex-col overflow-hidden rounded-xl border bg-card transition-colors hover:border-foreground/20">
         {project.image && (
           <div className="relative aspect-[16/10] w-full overflow-hidden bg-muted">
@@ -18,6 +21,8 @@ export function ProjectCard({ project }: { project: Project }) {
               src={project.image}
               alt=""
               fill
+              loading={eager ? "eager" : "lazy"}
+              fetchPriority={eager ? "high" : "auto"}
               className="object-cover transition-transform duration-500 group-hover:scale-[1.03]"
               sizes="(min-width: 640px) 50vw, 100vw"
             />
