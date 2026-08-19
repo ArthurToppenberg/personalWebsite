@@ -42,15 +42,15 @@ export function ProjectHeader({
 
       {image && (
         <figure className="m-0 mb-10">
-          <div className="overflow-hidden rounded-xl border">
+          <div className="relative aspect-[3/2] w-full overflow-hidden rounded-xl border">
             <Image
               src={image}
               alt={title}
-              width={1200}
-              height={630}
+              fill
               loading="eager"
               fetchPriority="high"
-              className="h-auto w-full rounded-xl"
+              sizes="(min-width: 768px) 720px, 100vw"
+              className="rounded-xl object-cover"
             />
           </div>
           {imageCaption && (
@@ -72,13 +72,15 @@ type ProjectImageProps = {
 
 export function ProjectImage({ src, alt, caption }: ProjectImageProps) {
   const image = (
-    <Image
-      src={src}
-      alt={alt}
-      width={1024}
-      height={768}
-      className="h-auto w-full rounded-xl object-cover"
-    />
+    <div className="relative aspect-[4/3] w-full overflow-hidden rounded-xl">
+      <Image
+        src={src}
+        alt={alt}
+        fill
+        sizes="(min-width: 640px) 360px, 100vw"
+        className="object-cover"
+      />
+    </div>
   );
 
   if (!caption) {

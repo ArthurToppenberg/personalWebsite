@@ -16,6 +16,16 @@ const nextConfig: NextConfig = {
     // AVIF isn't served by default (costlier to encode) — opt in since the
     // runtime optimizer already caches its output.
     formats: ["image/avif", "image/webp"],
+    // Default is 14400s (4h): confirmed live via the `cache-control` header
+    // on /_next/image responses. Cold-cache AVIF re-encodes of the full-res
+    // blob originals measured 5-9s, so a 4h TTL means visitors regularly eat
+    // that stall. Gallery image URLs are effectively immutable (fixed
+    // filenames), so cache them for longer. Per Next's docs there's no
+    // invalidation mechanism — if a source file at the same URL is ever
+    // replaced, clear `.next/cache/images` (or bump this app's deploy, since
+    // that cache currently lives inside the container image) rather than
+    // waiting out the TTL.
+    minimumCacheTTL: 2678400, // 31 days
     remotePatterns: [
       {
         protocol: "https",
