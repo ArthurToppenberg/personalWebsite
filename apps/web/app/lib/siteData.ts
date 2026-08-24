@@ -1,3 +1,5 @@
+export const SITE_URL = "https://arthurtoppenberg.dk";
+
 export const TECHNOLOGIES = [
   "TypeScript",
   "React",
@@ -10,7 +12,6 @@ export const TECHNOLOGIES = [
   "AWS",
   "Git",
 ] as const;
-
 
 export const SOCIAL_LINKS = [
   {

@@ -9,6 +9,14 @@ import { meta } from "./meta";
 export const metadata: Metadata = {
   title: meta.title,
   description: meta.description,
+  alternates: { canonical: `/projects/${meta.slug}` },
+  openGraph: {
+    type: "article",
+    title: `${meta.title} — Arthur Toppenberg`,
+    description: meta.description,
+    url: `/projects/${meta.slug}`,
+    images: meta.image ? [meta.image] : undefined,
+  },
 };
 
 export default function CuboEighteenPage() {
