@@ -10,6 +10,12 @@ import { SocialLinks } from "../components/SocialLinks";
 export const metadata: Metadata = {
   title: "Contact",
   description: "Get in touch with Arthur Toppenberg.",
+  alternates: { canonical: "/contact" },
+  openGraph: {
+    title: "Contact — Arthur Toppenberg",
+    description: "Get in touch with Arthur Toppenberg.",
+    url: "/contact",
+  },
 };
 
 const container = {

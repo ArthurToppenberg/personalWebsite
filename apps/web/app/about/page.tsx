@@ -9,6 +9,12 @@ import { TECHNOLOGIES } from "../lib/siteData";
 export const metadata: Metadata = {
   title: "About",
   description: "Mechanical Engineering student at DTU.",
+  alternates: { canonical: "/about" },
+  openGraph: {
+    title: "About — Arthur Toppenberg",
+    description: "Mechanical Engineering student at DTU.",
+    url: "/about",
+  },
 };
 
 const fadeInUp = {
