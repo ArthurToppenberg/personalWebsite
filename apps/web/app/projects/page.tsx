@@ -6,6 +6,12 @@ import { projects } from "./projects";
 export const metadata: Metadata = {
   title: "Projects",
   description: "A few things Arthur Toppenberg has built recently.",
+  alternates: { canonical: "/projects" },
+  openGraph: {
+    title: "Projects — Arthur Toppenberg",
+    description: "A few things Arthur Toppenberg has built recently.",
+    url: "/projects",
+  },
 };
 
 const sortedProjects = [...projects].sort((a, b) =>
