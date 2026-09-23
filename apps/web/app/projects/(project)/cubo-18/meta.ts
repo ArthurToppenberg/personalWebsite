@@ -7,6 +7,6 @@ export const meta: ProjectMeta = {
   description: "A DIY 18-inch cube subwoofer, built from scratch in plywood",
   date: "2026-08-18",
   icon: Speaker,
-  image: "https://blob.arthurtoppenberg.dk/site-images/IMG_4605.avif",
+  image: "/images/cubo-18/IMG_4616.jpg",
   imageCaption: "Cubo 18 finished and painted",
 };
